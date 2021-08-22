@@ -4,3 +4,8 @@ numbers = (1, 2, 3)
 # print(numbers.count(3))
 # print(numbers[0])
 # Tuples are useful when you don't want to change content
+
+# Unpacking
+coordinates = (1, 2, 3)
+x, y, z = coordinates
+# Works with lists as well
