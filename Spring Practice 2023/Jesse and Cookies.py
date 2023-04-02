@@ -20,14 +20,20 @@ import bisect
 def cookies(k, A):
     # Write your code here
     #first solution, just brute force it
+    num_of_mixes = 0
+    broke = False
     A.sort()
     while(A[0] < k):
         if (len(A) == 1):
-            break
+            return -1
         else:
             new_cookie = (A[0]+(A[1]*2))
             index_to_insert = bisect.bisect_left(A, new_cookie)
             A.insert(index_to_insert, new_cookie)
+            A = A[2:]
+            num_of_mixes = num_of_mixes + 1
+        
+    return num_of_mixes
             
 
 if __name__ == '__main__':
