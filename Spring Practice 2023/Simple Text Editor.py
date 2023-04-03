@@ -1,24 +1,34 @@
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-
-s = ""
-#last done action
-lda = 0
-
-for _ in range(int(input())):
-    val = list(input().split())
-    if val[0] == "1":
-        #if 1, append
-        s = s + val[1]
-        lda = lda + 1
-    elif val[0] == "2":
-        #if 2, delete the last k characters of S
-        s = s[:(len(s)-val[1])]
-        lda = lda + 1
-    elif val[0] == "3":
-        #if 3, print the kith character of S
-        print(s[val[1]-1])
-        lda = lda + 1
-    elif val[0] == "4":
-        #undo the last not previously undone operation of type 1 or 2
+class TextEditor:
+    def __init__(self,S=''):
+        self.S=S
+        self.undo_list = []
         
+    def append(self, w):
+        self.undo_list.append(self.S)
+        self.S += w
+    def delete(self, k):
+        self.undo_list.append(self.S)
+        self.S = self.S[:-k]
         
+    def print(self, k):
+        print(self.S[k-1])
+        
+    def undo(self):
+        self.S = self.undo_list.pop()
+        
+S = TextEditor()
+n = int(input())
+for _ in range(n):
+    t = input()
+    if t == '4':
+        S.undo()
+    else:
+        digit, value = t.split()
+        if digit == '1':
+            S.append(value)
+        if digit == '2':
+            k = int(value)
+            S.delete(k)
+        if digit == '3':
+            k = int(value)
+            S.print(k)
