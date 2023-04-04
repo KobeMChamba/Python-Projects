@@ -45,7 +45,7 @@ def preOrder(root):
     if not root:
         return
     
-    print(root.info)
+    print(root.info, end='')
     
     preOrder(root.left)
     
