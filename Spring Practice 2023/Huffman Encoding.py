@@ -57,20 +57,29 @@ def dfs_hidden(obj, already):
 def decodeHuff(root, s):
     #Enter Your Code Here
     pointer = root
-    prev = root
+    
+    #print(s)
     for digit in s:
-        if digit == 1:
+        if digit == '1':
+            #print(1)
             if (pointer.right == None):
-                print(prev.data)
+                #print("right node")
+                print(pointer.data, end='')
+                pointer = root.right
             else:
-                prev = pointer
+                
                 pointer = pointer.right
         else:
+            #print(0)
             if (pointer.left == None):
-                print(prev.data)
+                #print("left node")
+                print(pointer.data, end='')
+                pointer = root.left
             else:
-                prev = pointer
                 pointer = pointer.left   
+                
+    print(pointer.data)            
+    
             
     
 
