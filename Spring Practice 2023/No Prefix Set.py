@@ -15,14 +15,19 @@ import sys
 def noPrefix(words):
     # Write your code here
     for i in range(len(words)):
-        for j in range(i+1, len(words)):
+        for j in range(0, i):
             #print("I: ", words[i])
             #print("J: ", words[j])
             
             prefix = False
             
-            if (len(words[i]) <= len(words[i])):
+            if (len(words[i]) <= len(words[j])):
                 for letter_index in range(len(words[i])):
+                    #print("words[i][letter_index]:", words[i][letter_index])
+                    #print("words[j]:", words[j])
+                    #print("letter index:", letter_index)
+                    #print("words[j][letter_index]: ", end ='')
+                    #print(words[j][letter_index])
                     if (words[i][letter_index] != words[j][letter_index]):
                         prefix = False
                         #print("They differ at letter index: ", letter_index)
@@ -34,13 +39,13 @@ def noPrefix(words):
                 if prefix:
                     print("BAD SET")
                     #print(words[i])
-                    print(words[j])
+                    print(words[i])
                     return
             else:
                 for letter_index in range(len(words[j])):
                     if (words[i][letter_index] != words[j][letter_index]):
                         prefix = False
-                        print("They differ at letter index: ", letter_index)
+                        #print("They differ at letter index: ", letter_index)
                         break
                     else:
                         prefix = True
@@ -48,7 +53,7 @@ def noPrefix(words):
                 if prefix:
                     print("BAD SET")
                     #print(words[i])
-                    print(words[j])
+                    print(words[i])
                     return
     print("GOOD SET")
                     
