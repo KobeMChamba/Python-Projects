@@ -49,13 +49,6 @@ def noPrefix(words):
         trie.insert(word)
     print("GOOD SET")
 
-                    
-                    
-                        
-                        
-                        
-        
-
 if __name__ == '__main__':
     n = int(input().strip())
 
