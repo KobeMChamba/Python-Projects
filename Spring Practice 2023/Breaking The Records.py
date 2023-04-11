@@ -30,7 +30,7 @@ def breakingRecords(scores):
             min = num
             min_count = min_count + 1
             
-    return [max, min]
+    return [max_count, min_count]
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
