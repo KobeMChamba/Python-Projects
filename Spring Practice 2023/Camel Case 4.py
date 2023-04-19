@@ -19,7 +19,7 @@ for _ in range(n):
         if t[2] == 'V' or t[2] == 'M':
         ##take out space and make letter after space uppercase
             words = t.split()
-            new_s = words[0] + ''.join(word.capitalize() for word in words[1:])
+            new_s = words[0] + ''.join(word.capitalize() for word in words[1:]))
             if t[2] == 'M':
                 new_s = new_s + "()"
         if t[2] == C:
