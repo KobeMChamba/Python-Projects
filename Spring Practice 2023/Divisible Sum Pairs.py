@@ -18,6 +18,13 @@ import sys
 
 def divisibleSumPairs(n, k, ar):
     # Write your code here
+    sum = 0
+    for i in range(len(ar)):
+        for j in range(i+1, len(ar)):
+           if (ar[i]+ar[j])%k== 0:
+            sum = sum + 1
+    return sum 
+        
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
