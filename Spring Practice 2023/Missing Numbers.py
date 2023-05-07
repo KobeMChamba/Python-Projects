@@ -5,6 +5,7 @@ import os
 import random
 import re
 import sys
+from collections import Counter
 
 #
 # Complete the 'missingNumbers' function below.
@@ -17,6 +18,17 @@ import sys
 
 def missingNumbers(arr, brr):
     # Write your code here
+    counter1 = Counter(brr)
+    counter2 = Counter(arr)
+    missing = []
+
+    for element, count in counter1.items():
+        diff = count - counter2.get(element, 0)
+        if diff > 0:
+            missing.append(element)
+
+    missing.sort()  
+    return missing
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
