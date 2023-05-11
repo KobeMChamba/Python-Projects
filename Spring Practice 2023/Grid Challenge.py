@@ -14,14 +14,9 @@ import sys
 #
 
 def gridChallenge(grid):
-    # Write your code here
-    grid.sort()
-    #print(grid)
     for i in range(len(grid)):
         grid[i] = ''.join(sorted(grid[i]))
-    #print(grid)
     for i, c in enumerate(grid[0]):
-        #print(i, c)
         for string in grid[1:]:
             print("c: ", c)
             print("next: ", string[i])
