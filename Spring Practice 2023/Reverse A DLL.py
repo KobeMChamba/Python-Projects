@@ -57,7 +57,37 @@ def print_doubly_linked_list(node, sep, fptr):
 
 def reverse(llist):
     # Write your code here
-    # Recursive solution
+    # Iterative solution
+    # Traverse the linked list using a pointer
+    # Swap the prev and next pointers for all nodes
+    # At last, change the head pointer of the doubly linked list
+    print(llist)
+    print(llist.data)
+    print(llist.next)
+    print(llist.prev)
     
+    #Create list, this is not needed but makes it easier for me to understand the structure
+    reversed_dll = DoublyLinkedList()
+    
+    temp = None
+    # Create traversal pointer
+    current = llist
+    # Traverse and swap prev and next pointers for all nodes
+    while current != None:
+        temp = current.prev
+        current.prev = current.next
+        current.next = temp
+        # Go on to "next" node
+        current = current.prev
+        
+    # Before changing head, check for the cases like
+    # empty list and list with only one node
+    # empty list will mean temp is none and we do not need to change head
+    # one node means temp will point to prev which will be none, no need to change head
+    if temp is not None:
+        reversed_dll.head = temp.prev
+        return reversed_dll.head
+    else:
+        return llist    
 
 if __name__ == '__main__':
