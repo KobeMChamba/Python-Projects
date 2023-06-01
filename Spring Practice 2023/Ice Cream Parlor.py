@@ -18,12 +18,15 @@ import sys
 def icecreamParlor(m, arr):
     # Write your code here
     complement_map = {}  # dictionary to store complement of elements
-    for num in arr:
+    for index, num in enumerate(arr):
         complement = m - num
+        #checks all keys for complement
         if complement in complement_map:
-            return [complement, num]
+            #index represents the num
+            #answer should be 1-based indexing
+            return [complement_map[complement]+1, index+1]
         else:
-            complement_map[num] = True
+            complement_map[num] = index
 
     return []  # no pair found
 
