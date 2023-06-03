@@ -71,7 +71,7 @@ def sortedInsert(llist, data):
             break
         prev = pointer
         pointer = pointer.next
-    return llist
+    return dummy_node.next
         
 
 if __name__ == '__main__':
