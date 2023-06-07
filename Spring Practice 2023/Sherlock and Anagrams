@@ -19,9 +19,13 @@ def sherlockAndAnagrams(s):
     # First loop selects starting index 
     for s_index, s_char in enumerate(s):
         #Second loop selects ending index:
-        for e_index, e_char in enumerate(s):
-            if s[s_index, e_index] in freq_dict:
-                freq_dict[]
+        for e_index, e_char in enumerate(s[s_index:]):
+            if s[s_index:e_index] in freq_dict:
+                freq_dict[s[s_index:e_index]] = freq_dict[s[s_index:e_index]] + 1
+            else:
+                freq_dict[s[s_index:e_index]] = 1
+    total = sum(freq_dict.values())
+    return total
             
             
             
