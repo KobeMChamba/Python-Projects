@@ -20,10 +20,19 @@ def sherlockAndAnagrams(s):
     for s_index, s_char in enumerate(s):
         #Second loop selects ending index:
         for e_index, e_char in enumerate(s[s_index:]):
-            if s[s_index:e_index] in freq_dict:
-                freq_dict[s[s_index:e_index]] = freq_dict[s[s_index:e_index]] + 1
+            if(s_index >= e_index):
+                continue
+            print(s)
+            print(s[s_index:])
+            print("s_index: ", s_index)
+            print("e_index: ", e_index)
+            print(s[s_index:e_index])
+            #create a freq table out of the sorted string
+            freq_table = ''.join(sorted(s[s_index:e_index]))
+            if freq_table in freq_dict:
+                freq_dict[freq_table] = freq_dict[freq_table] + 1
             else:
-                freq_dict[s[s_index:e_index]] = 1
+                freq_dict[freq_table] = 0
     total = sum(freq_dict.values())
     return total
             
