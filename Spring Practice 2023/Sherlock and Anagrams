@@ -17,24 +17,34 @@ def sherlockAndAnagrams(s):
     # Freq Dict
     freq_dict = {}
     # First loop selects starting index 
+    print("s: ", s)
     for s_index, s_char in enumerate(s):
         #Second loop selects ending index:
-        for e_index, e_char in enumerate(s[s_index:]):
+        for e_index, e_char in enumerate(s):
+            e_index = e_index + 1
             if(s_index >= e_index):
                 continue
-            print(s)
-            print(s[s_index:])
-            print("s_index: ", s_index)
-            print("e_index: ", e_index)
-            print(s[s_index:e_index])
+            #print("s_index: ", s_index)
+            #print("e_index: ", e_index)
+            #print(s[s_index:e_index])
             #create a freq table out of the sorted string
             freq_table = ''.join(sorted(s[s_index:e_index]))
+            print(freq_table)
             if freq_table in freq_dict:
                 freq_dict[freq_table] = freq_dict[freq_table] + 1
+                print("+1")
             else:
                 freq_dict[freq_table] = 0
-    total = sum(freq_dict.values())
-    return total
+    # total = sum(freq_dict.values())
+    # now we have the total number occurences
+    # we need to count the number of pairs
+    total_sum = 0
+    for value in freq_dict.values():
+        if value >= 2:  # Only calculate if value is at least 2
+            nC2 = value * (value - 1) // 2 
+            total_sum += nC2
+
+    return total_sum
             
             
             
