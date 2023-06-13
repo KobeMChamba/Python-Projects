@@ -63,3 +63,63 @@ if __name__ == '__main__':
         fptr.write(str(result) + '\n')
 
     fptr.close()
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'sherlockAndAnagrams' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def sherlockAndAnagrams(s):
+    # Freq Dict
+    freq_dict = {}
+    # First loop selects starting index 
+    print("s: ", s)
+    for s_index, s_char in enumerate(s):
+        #Second loop selects ending index:
+        for e_index, e_char in enumerate(s):
+            if(s_index > e_index):
+                continue
+            e_index = e_index + 1
+            #print("s_index: ", s_index)
+            #print("e_index: ", e_index)
+            #print(s[s_index:e_index])
+            #create a freq table out of the sorted string
+            freq_table = ''.join(sorted(s[s_index:e_index]))
+            print(freq_table)
+            if freq_table in freq_dict:
+                freq_dict[freq_table] = freq_dict[freq_table] + 1
+                print("+1")
+            else:
+                freq_dict[freq_table] = 1
+    #print out freq table for debug
+    #for key, value in freq_dict.items():
+    #    print("key: ", key, "value: ",value)            
+    
+    total_sum = sum(value * (value - 1) // 2 for value in freq_dict.values())
+    total_sum += sum(value // 2 for value in freq_dict.values() if value == 1)
+    return total_sum
+            
+
+            
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = sherlockAndAnagrams(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
