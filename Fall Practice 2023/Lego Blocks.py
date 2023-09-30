@@ -20,7 +20,7 @@ def legoBlocks(n, m):
     block_sizes=[[1,1], [1,2], [1,3], [1,4]]
 
     #create a table for how many combinations for smaller walls, initialize with zeros
-    
+     
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
