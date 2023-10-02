@@ -1,0 +1,18 @@
+10/1
+Lego Blocks
+Problem requirements:
+Calculate the number of ways an nxm wall can be built with 1x1, 1x2, 1x3, 1x4 blocks
+Walls may not have vertical breaks or holes
+
+Solution:
+Create a base case for combinations of 1x0,1x1,1x2,1x3 walls
+Sum last 4 cases of the wall and append to end of the list
+continue to do so until list has the number of combinations for an m sized wall of height 1
+
+Calculate combinations for N tall wall
+set combinations to nth power for each width
+
+Remove unstable combinations
+No holes in our combinations, only need to find vertical breaks
+No unstable combinations in 1x0 or 1x1
+
