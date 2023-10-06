@@ -3,7 +3,7 @@ Lego Blocks
 Problem requirements:
 Calculate the number of ways an nxm wall can be built with 1x1, 1x2, 1x3, 1x4 blocks
 Walls may not have vertical breaks or holes
-
+ 
 Solution:
 Create a base case for combinations of 1x0,1x1,1x2,1x3 walls
 Sum last 4 cases of the wall and append to end of the list
