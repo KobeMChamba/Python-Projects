@@ -8,4 +8,5 @@ def weightedUniformStrings(s, queries):
         elif counter > letter_dict[letter]:
             letter_dict[letter] = counter
 
-            
+
+ 
