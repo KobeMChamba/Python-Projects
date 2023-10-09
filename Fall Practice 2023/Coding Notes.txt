@@ -16,3 +16,27 @@ Remove unstable combinations
 No holes in our combinations, only need to find vertical breaks
 No unstable combinations in 1x0 or 1x1
 
+10/9
+Weighted Uniform Strings
+Problem requirements:
+For each value in queries, return yes or no, depending on if the value is equal to any of the possible string weights. 
+String weights are equal to the length of a uniform subset of characters where their weight is 1 for a, 2 for b, etc.
+
+Solution: 
+Hard code letter values
+Compare each letter to the previous letter
+if equal, increase counter
+if not, add to dictionary if the value is greater than the existing value (replacing bb with bbb aka {b: 2} with {b: 3})
+If there was only one letter: add it to dictionary
+If it was the last letter: add it to dictionary (include previous checks)
+Then go through queries and check for divisibility and sufficient length of strength
+Return answers
+
+What I learned:
+Practiced use of dictionaries and iterating through list
+
+Improvements to code:
+I do not have to hardcode weights, could calculate them easily
+Could store weight and length in the dictionary so i wouldnt need two dictionaries
+Could check current character with next character and then just add the last one in
+
