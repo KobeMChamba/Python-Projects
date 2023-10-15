@@ -40,3 +40,30 @@ I do not have to hardcode weights, could calculate them easily
 Could store weight and length in the dictionary so i wouldnt need two dictionaries
 Could check current character with next character and then just add the last one in
 
+
+10/15 
+Permutation Game
+Problem requirements: Figure out if player 1 or 2 wins game when given list of numbers
+Player wins by creating a list in increasing order, each player can remove one element at a time, assume players play optimally
+
+Solution:
+Create a function that checks if list is in increasing order
+Create a memoization dictionary
+Use recursive function "Find Winner"
+Is boolean function: True means that after removing whatever index was removed, that player has forced a win state
+If you get to that state that means that the previous state is false for the other state. So if on move one, P1 can force
+win with one move, it returns true for subarray, therefore the full array is false. Therefore, returning false for the array
+means that P1 won, returning false -> P1 Win, returning true -> P2 win
+1) If increasing, base case, add True, add to memo
+2) Calculate the next turn
+3) For each element, remove it from array and call Find Winner
+4) Check base case and memo, if True, the previous array is False
+5) If none of the removals result in a True, then the prev array is True
+
+What I learned:
+More experience with dynamic programming
+Using recursion to break down each problem to a base case
+Add base case to the memo dictionary to increase efficiency
+Use True and False to keep track of winner of each state and then using that to return winner for entire state.
+
+
