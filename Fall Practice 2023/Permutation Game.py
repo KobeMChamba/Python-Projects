@@ -25,7 +25,7 @@ def permutationGame(arr):
         key = tuple(arr)
         print("key: ", key)
         if key in memo:
-            "key in memo"
+            print("key in memo")
             return memo[key]
         
     # If arr is ascending, then this player wins (base case)
