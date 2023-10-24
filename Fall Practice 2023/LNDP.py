@@ -10,9 +10,6 @@ ProdArr = [
     [-40, -35, -15, -40, -40, ],
 ]
 
-LenArr = [[0 for _ in range(N)] for _ in range(M)]
-#for row in LenArr:
-#    print(row)
 
 InfoArr = [[0 for _ in range(N)] for _ in range(M)]
 #InfoARR begins as 0 but gets filled in with 
