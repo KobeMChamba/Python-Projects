@@ -66,4 +66,11 @@ Using recursion to break down each problem to a base case
 Add base case to the memo dictionary to increase efficiency
 Use True and False to keep track of winner of each state and then using that to return winner for entire state.
 
+10/29
+QHeap
+Problem: Create a min heap and use it to add and remove elements. Print minimum value.
+Solution: Creat a min heap by creating heap_up and heap_down function. Use heap_up to append new element. To remove an element,
+replace the element we want to remove with the last element in the array. Then pop the array and re-heap the arr with heap_down.
 
+What I learned:
+Refreshed memory on min and max-heaps. Refreshed my memory on how to keep them ordered.
