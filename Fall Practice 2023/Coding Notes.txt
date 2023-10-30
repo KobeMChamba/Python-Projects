@@ -74,3 +74,14 @@ replace the element we want to remove with the last element in the array. Then p
 
 What I learned:
 Refreshed memory on min and max-heaps. Refreshed my memory on how to keep them ordered.
+
+10/31
+largestRectangle
+Problem: Find the biggest rectangle given an array of heights
+Solution: Create a stack, if the next height is greater than the current min height, append the index to the stack
+If not: Pop the tallest bar (last) and calculate area from popped bar to the right, until we can add the next bar. 
+We are finding the longest nondecreasing indices, the removing the tallest bars(at the end), calculating their areas, and 
+then continuing to find the nondecreasing indices. When we are done we will have calculated all the tall bars and then be
+left with a nondecreasing stack that we can calculate the areas for. This is an O(n) solution
+What I learned:
+Refreshed my memory on stacks
