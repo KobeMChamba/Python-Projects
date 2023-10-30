@@ -31,7 +31,7 @@ def largestRectangle(h):
             while stack and h[i] < h[stack[-1]]:
                 # While the stack is not empty and the current bar's height is smaller than the height of the bar at the top of the stack:
 
-                last = stack.pop()  # Pop the index of the bar at the top of the stack (the shortest bar)
+                last = stack.pop()  # Pop the index of the bar at the top of the stack (the tallest bar)
                 if stack:
                     # If there are still bars in the stack, calculate the area of the rectangle using
                     # the current index `i` and the previous index in the stack.
