@@ -85,3 +85,8 @@ then continuing to find the nondecreasing indices. When we are done we will have
 left with a nondecreasing stack that we can calculate the areas for. This is an O(n) solution
 What I learned:
 Refreshed my memory on stacks
+
+Jesse And Cookies
+Problem: Combine two lowest numbers in an array until all numbers in the array are greater than k
+Solution: Heapify array, pop bottom two, add result to heap until min val is > k
+What I learned: Worked with heap to simply problem
