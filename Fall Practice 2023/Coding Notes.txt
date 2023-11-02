@@ -90,3 +90,12 @@ Jesse And Cookies
 Problem: Combine two lowest numbers in an array until all numbers in the array are greater than k
 Solution: Heapify array, pop bottom two, add result to heap until min val is > k
 What I learned: Worked with heap to simply problem
+
+11/2
+hackerlandRadioTransmitters
+Problem: given an array of home addresses and range, find minimum number of transmitters needed to cover range
+Solution: Add antenna, Save range from x[0], pop houses from beginning until beginning is outside the left range
+Save range from x[0], pop houses from beginning until beginning is outside the right range
+Repeat and print results
+What I learned: Do not overcomplicate code, can use pop to make lists easier to work with, 
+especially when that information does not matter.
