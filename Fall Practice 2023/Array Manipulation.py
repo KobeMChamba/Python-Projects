@@ -18,7 +18,8 @@ import sys
 def arrayManipulation(n, queries):
     ans = [0]*n
     for idx, q in enumerate(queries):
-        for i in range(q[0]-1, q[1]-1):
+        print(ans)
+        for i in range(q[0]-1, q[1]):
             ans[i]+=q[2]
     return max(ans)
         
