@@ -99,3 +99,9 @@ Save range from x[0], pop houses from beginning until beginning is outside the r
 Repeat and print results
 What I learned: Do not overcomplicate code, can use pop to make lists easier to work with, 
 especially when that information does not matter.
+
+11/4
+Array Manipulation
+Problem: Given a list of queries, add query[3] from range query[0] to query[1]-1, inclusive to an array of zeroes.
+Return the largest element in array.
+Brute force does not work for big inputs
