@@ -105,3 +105,8 @@ Array Manipulation
 Problem: Given a list of queries, add query[3] from range query[0] to query[1]-1, inclusive to an array of zeroes.
 Return the largest element in array.
 Brute force does not work for big inputs
+Solution: Focus on a range focused solution, by adding all the beginnings with k and the ends with -100 and sorting the list,
+we can iterate through the list of CHANGES, instead of iterating through each individual value in the array. This way
+we can handle much bigger arrays and cases. 
+What I learned: Do not think about problems in such a straight forward way, alternative approaches can help handle more difficult
+edge cases
