@@ -110,3 +110,11 @@ we can iterate through the list of CHANGES, instead of iterating through each in
 we can handle much bigger arrays and cases. 
 What I learned: Do not think about problems in such a straight forward way, alternative approaches can help handle more difficult
 edge cases
+
+11/13 
+Highest Value Palindrome
+Problem: Given an integer in string form, return the highest value Palindrome. You are allowed to make k number changes.
+Issues: I misunderstood the question, I thought i had to optimize the sum of the digits, not the actual number
+Solution: Iterate to midpoint, making sure it is symmetrical. Go back and maxmize by changing two at a time to 9.
+Small things to remember: Cannot change string chars in place so replace it with a list, can also just decrease k instead of 
+using k-counter and comparing it to k. 
