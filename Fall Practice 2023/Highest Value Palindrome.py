@@ -17,36 +17,29 @@ import sys
 #
 
 def highestValuePalindrome(s, n, k):
-    req_changes = 0
-    idx_to_change = []
-    idx_to_optimize = []
-    if n % 2 == 0:
-        #print((n/2-1))
-        l_range = range(int(n/2-1), -1, -1)
-        r_range = range(int(n/2), n)
-    elif n >= 3:
-        l_range = range(int((n-1)/2), -1, -1)
-        r_range = range(int((n+1)/2), n)
+    s = list(s)
+    s2=s.copy()
+    for i in range(int(n/2)+1):
+        if s[i]!=s[n-i-1]:
+            s[i]=s[n-i-1]=max(s[i], s[n-i-1])
+            k-=1
+        if k<0:
+            return '-1'
     
-    indexed_values = []
-    for lidx, ridx in zip(l_range, r_range):
-        if s[lidx] != s[ridx]:
-            print("s[lidx]: ", s[lidx])
-            print("s[ridx]: ", s[ridx])
-            req_changes += 1
-            if req_changes > k:
-                return("-1")
-            idx_to_change.append((lidx, ridx))
-        else:
-            #print("matching")
-            #print(lidx)
-            indexed_values.append((lidx, int(s[lidx])))
-    #print(indexed_values)
-            #appends (value, idx)
-    sorted_indices = [index for index, value in sorted(indexed_values, key=lambda x: x[0])]
-    print("sorted_indices: ", sorted_indices)
-    return("test")
-
+    i=0
+    while k>0 and i<int(n/2)+1:
+        if s[i]!='9':
+            if s[i]==s2[i] and s[n-i-1]==s2[n-i-1] and i!=n-i-1:
+                if k>=2:
+                    s[i]=s[n-i-1]='9'
+                    k-=2
+            else:
+                s[i]=s[n-i-1]='9'
+                k-=1
+        i+=1
+        
+    return ''.join(s)
+              
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
