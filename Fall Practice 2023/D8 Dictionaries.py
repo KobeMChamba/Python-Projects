@@ -1,20 +1,17 @@
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-n = int(input())
-phone_dict = {}
-for i in range(n):
-    data = input()
-    values = data.split()
-    name = values[0]
-    num = values[1]
-    phone_dict[name] = num
-    #print(name)
-    #print(num)
-    #print(phone_dict)
-for i in range(n):
-    name = input()
-    #print(name)
-    if name in phone_dict.keys():
-        print(name+"="+phone_dict[name])
+EntryCount = int(input())
+PhoneBook = {}
+
+def Query(name):
+    if PhoneBook.get(name) is None:
+        return "Not found"
     else:
-        print("Not found")
-    
+        return name + "=" + PhoneBook.get(name)
+
+for _ in range(EntryCount):
+    name, number = input().strip().split()
+    PhoneBook[name] = number
+for _ in range(EntryCount):
+    try:
+        print (Query(input()))
+    except EOFError:
+        break
