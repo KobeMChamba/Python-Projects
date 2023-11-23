@@ -14,4 +14,4 @@ if __name__ == '__main__':
 
     for _ in range(6):
         arr.append(list(map(int, input().rstrip().split())))
-        
+         
