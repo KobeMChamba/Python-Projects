@@ -3,7 +3,7 @@ import mediapipe as mp
 import time
 
 
-class handDetector():
+class handDetector:
     def __init__(self, mode=False, maxHands=2, detectionCon=0.50, trackCon=0.50):
         self.mode = mode
         self.maxHands = maxHands
@@ -17,22 +17,31 @@ class handDetector():
 
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results = self.hands.process(imgRGB)
+        self.results = self.hands.process(imgRGB)
         # print(results.multi_hand_landmarks) # check if hand is detected
 
-        if results.multi_hand_landmarks:
-            for handLms in results.multi_hand_landmarks:
+        if self.results.multi_hand_landmarks:
+            for handLms in self.results.multi_hand_landmarks:
                 if draw:
                     self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)
                     
         return img
-        # for id, lm in enumerate(handLms.landmark):
-        #     # print(id, lm)
-        #     h, w, c = img.shape
-        #     cx, cy = int(lm.x * w), int(lm.y * h)
-        #     print(id, cx, cy)
-        #     if id == 0:
-        #         cv2.circle(img, (cx, cy), 25, (255, 0, 255), cv2.FILLED)
+
+    def findPosition(self, img, handNo=0, draw=True):
+
+        lmList = []
+        if self.results.multi_hand_landmarks:
+            myHand = self.results.multi_hand_landmarks[handNo]
+            for id, lm in enumerate(myHand.landmark):
+                # print(id, lm)
+                h, w, c = img.shape
+                cx, cy = int(lm.x * w), int(lm.y * h)
+                # print(id, cx, cy)
+                lmList.append([id, cx, cy])
+                if draw:  # Draws the circles on hand
+                    cv2.circle(img, (cx, cy), 7, (173, 131, 40), cv2.FILLED)
+
+        return lmList
 
 
 def main():
@@ -42,7 +51,10 @@ def main():
     detector = handDetector()
     while True:
         success, img = cap.read()
-        img = detector.findHands(img)
+        img = detector.findHands(img)  # , draw=False)
+        lmList = detector.findPosition(img)  # , draw=False)
+        if len(lmList) != 0:
+            print(lmList[4])  # 4 is tip of the thumb
 
         cTime = time.time()
         fps = 1 / (cTime - pTime)
