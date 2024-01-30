@@ -7,6 +7,31 @@ def minimum_index(seq):
             min_idx = i
     return min_idx
 
+class TestDataEmptyArray:
+    @staticmethod
+    def get_array():
+        return []
+
+class TestDataUniqueValues:
+    @staticmethod
+    def get_array():
+        return [1, 2]
+
+    @staticmethod
+    def get_expected_result():
+        return 1
+
+class TestWithExactlyTwoDifferentMinimums:
+    @staticmethod
+    def get_array():
+        return [1, 1, 2, 3]
+
+    @staticmethod
+    def get_expected_result():
+        return 0
+
+
+
 
 def TestWithEmptyArray():
     try:
