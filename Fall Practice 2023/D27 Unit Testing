@@ -6,31 +6,25 @@ def minimum_index(seq):
         if seq[i] < seq[min_idx]:
             min_idx = i
     return min_idx
-
 class TestDataEmptyArray:
-    @staticmethod
     def get_array():
         return []
 
-class TestDataUniqueValues:
-    @staticmethod
-    def get_array():
-        return [1, 2]
 
-    @staticmethod
+class TestDataUniqueValues:
+    def get_array():
+        return [9, 1]
+
     def get_expected_result():
         return 1
 
-class TestWithExactlyTwoDifferentMinimums:
-    @staticmethod
+
+class TestDataExactlyTwoDifferentMinimums:
     def get_array():
-        return [1, 1, 2, 3]
+        return [9, 1, 1]
 
-    @staticmethod
     def get_expected_result():
-        return 0
-
-
+        return 1
 
 
 def TestWithEmptyArray():
