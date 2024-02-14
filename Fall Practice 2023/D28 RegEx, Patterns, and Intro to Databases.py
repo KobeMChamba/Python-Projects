@@ -11,28 +11,19 @@ import sys
 if __name__ == '__main__':
     N = int(input().strip())
 
+    # List to store first names of people whose email address ends
+    # in email_end
+    matching_names = []
     for N_itr in range(N):
-        first_multiple_input = input().rstrip().split()
+        first_name, email_id = input().strip().split()
 
-        firstName = first_multiple_input[0]
+        # Check if the email ID ends with the specified email_end
+        if email_id.endswith("@gmail.com"):
+            matching_names.append(first_name)
 
-        emailID = first_multiple_input[1]
-#!/bin/python3
+# Sort the list alphabetically
+matching_names.sort()
 
-import math
-import os
-import random
-import re
-import sys
-
-
-
-if __name__ == '__main__':
-    N = int(input().strip())
-
-    for N_itr in range(N):
-        first_multiple_input = input().rstrip().split()
-
-        firstName = first_multiple_input[0]
-
-        emailID = first_multiple_input[1]
+# Print the sorted list of names
+for name in matching_names:
+    print(name)
