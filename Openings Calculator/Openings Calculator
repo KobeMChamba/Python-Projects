@@ -5,6 +5,9 @@ import chess.pgn
 from collections import Counter
 from io import StringIO
 
+# Import the categorize_eco function from ECOCAT.py
+from ECOCAT import categorize_eco
+
 # Replace with your Chess.com username
 username = "kobe_chamba"
 
@@ -23,13 +26,14 @@ def fetch_games(username):
         # printer.pprint(data)
     else:
         print(f"Failed to fetch games. Status code: {response.status_code}")
+        return []
 
     archives = response.json()['archives']
     # printer.pprint(archives)
     games = []
 
     # For starting out we only want the last month
-    archives = ['https://api.chess.com/pub/player/kobe_chamba/games/2024/07']
+    # archives = ['https://api.chess.com/pub/player/kobe_chamba/games/2024/07']
     for archive_url in archives:
         archive_response = requests.get(archive_url, headers=headers)
         games.extend(archive_response.json()['games'])
@@ -39,7 +43,13 @@ def fetch_games(username):
 def extract_opening(game_pgn):
     pgn = StringIO(game_pgn)
     game = chess.pgn.read_game(pgn)
-    return game.headers.get("Opening", "Unknown")
+    headers = game.headers
+    # print(headers)  # Debugging: Print the headers to see what they contain
+    # printer.pprint(headers)
+    eco = headers.get("ECO", "Unknown")
+    # print(eco)
+    eco = categorize_eco(eco)
+    return eco
 
 def main():
     games = fetch_games(username)
@@ -50,7 +60,11 @@ def main():
         opening = extract_opening(game['pgn'])
         opening_counter[opening] += 1
     
-    for opening, count in opening_counter.items():
+    # Sort the openings by count in descending order
+    sorted_openings = sorted(opening_counter.items(), key=lambda item: item[1], reverse=True)
+
+
+    for opening, count in sorted_openings:
         print(f"{opening}: {count}")
 
 if __name__ == "__main__":
