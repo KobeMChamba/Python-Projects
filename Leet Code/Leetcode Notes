@@ -1,0 +1,11 @@
+9/23/2024
+11.Container With Most Water
+Two Pointer Problem
+Solution: Create pointers at both ends of the list and bring them in, checking if area
+of water increases
+Always bring in the shorter side (moving in taller side will never increase area), as it 
+is what limits the height of the area
+
+Prev attempts: Tried finding the two tallest heights and moving out from that
+Kept trying to optimize left side first and then right side, should've been optimizing the 
+shorter side.
