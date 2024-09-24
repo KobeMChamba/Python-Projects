@@ -9,3 +9,14 @@ is what limits the height of the area
 Prev attempts: Tried finding the two tallest heights and moving out from that
 Kept trying to optimize left side first and then right side, should've been optimizing the 
 shorter side.
+
+9/24/2024
+209. Minimum Size Subarray Sum.py
+Sliding Window
+Solution: First create a result val with a value of inf. Then, create pointer at start of array, move second pointer (j) down the array.
+At each step, increase the the total. After each step, go into a second loop that does 2 things while the total is greater than the target.
+1. Decrease val to i - j + 1 if possible, else stay the same
+2. Subtract nums[i] from total and move i one element right. This makes your sliding window
+as small as possible, saving the length when it was at its smallest valid point and brings the total to below the target, allowing it to grow to target on the next step of j. 
+
+Prev Attempts: I realized I had to create a sliding window but was incorrectly iterating and was unsure when to move the first pointer right. I was also not saving the shorted subarray length and was simply trying to find the best one, complicating the algorithm.
