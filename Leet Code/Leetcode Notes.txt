@@ -32,3 +32,12 @@ checking its length against the original length.
 Prev attempt: My less efficient solution was to iterate thru rows, cols, and boxes, one after another, and keeping a dict for each run, checking for repeats
 My solution is 3 times slower because I was not thinking about how I can do a single run through the array and store information about its position once for all 3 important factors.
 Instead I looped 3 times, once for each factor.
+
+10/1/2024
+383. Ransom Note.py
+Solution: 
+Create a list of 26, increment count for each letter in magazine. Decrement count with each letter in ransomnote. If less
+than 0, return False. 
+
+Prev attempt: My solution was basically the same except I used a hashmap, which is slightly slower as there is a fixed number
+of letters we will see.
