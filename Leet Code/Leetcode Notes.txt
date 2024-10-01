@@ -41,3 +41,11 @@ than 0, return False.
 
 Prev attempt: My solution was basically the same except I used a hashmap, which is slightly slower as there is a fixed number
 of letters we will see.
+
+49. Group Anagrams
+Solution:
+Create a dictionary, for each word sort it and use the sorted word as a key in the dictionary. Add the unsorted word as a value
+Return the values of the dictionary
+
+Prev attempt: Used a dictionary instead of a defaultdict(list) which is slightly faster as it has Automatic key initialization,
+can directly append, and simplifies code.
