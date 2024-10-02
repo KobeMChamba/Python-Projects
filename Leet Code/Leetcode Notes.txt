@@ -34,7 +34,7 @@ My solution is 3 times slower because I was not thinking about how I can do a si
 Instead I looped 3 times, once for each factor.
 
 10/1/2024
-383. Ransom Note.py
+383. Ransom Note
 Solution: 
 Create a list of 26, increment count for each letter in magazine. Decrement count with each letter in ransomnote. If less
 than 0, return False. 
@@ -49,3 +49,10 @@ Return the values of the dictionary
 
 Prev attempt: Used a dictionary instead of a defaultdict(list) which is slightly faster as it has Automatic key initialization,
 can directly append, and simplifies code.
+
+10/2/2024
+228. Summary Ranges
+Solution:
+Set first num in list to start and end. Iterate 1 through EOL, checking if current num is not num[i-1] + 1. If so,
+print out current range. Else, update end. Finally, print range if not in result. Print result.
+
