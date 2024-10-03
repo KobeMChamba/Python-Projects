@@ -56,3 +56,8 @@ Solution:
 Set first num in list to start and end. Iterate 1 through EOL, checking if current num is not num[i-1] + 1. If so,
 print out current range. Else, update end. Finally, print range if not in result. Print result.
 
+56. Merge intervals
+Solution:
+Sort the intervals by their first element. Iterate through intervals, append to results if empty or if the start is greater than
+the last interval's end. The last interval can be found with with ans[-1]. Otherwise, we know that the next interval must
+start before or at the last interval's end so the two can be combined. Can know how to combine using max().
