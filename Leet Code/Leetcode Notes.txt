@@ -66,3 +66,9 @@ start before or at the last interval's end so the two can be combined. Can know 
 20. Valid Parentheses
 Solution:
 Easy stack problem where we just append items to end of list, make comparisons, and pop from the end as well.
+
+10/18/2024
+2. Add Two Numbers 
+Solution:
+Create a dummy node for the result. Iterate while l1 or l2, udpate a val var for each if exists, and add them up with "carry". Set it to current.next.
+After the loop, if there's any carry left, create a new node for it. Return dumny.next. 
