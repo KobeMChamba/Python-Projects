@@ -72,3 +72,36 @@ Easy stack problem where we just append items to end of list, make comparisons, 
 Solution:
 Create a dummy node for the result. Iterate while l1 or l2, udpate a val var for each if exists, and add them up with "carry". Set it to current.next.
 After the loop, if there's any carry left, create a new node for it. Return dumny.next. 
+
+10/21/2024
+4. Median Array of Sorted Arrays
+Solution: 
+The goal of the algorithm is to use binary search on both lists. We can create a partition 
+in each list so that all the elements on the left side of the partition are smaller than 
+the right side of the second partition and all the elements on the left side of the second partition
+are smaller than the right side of the first partition.
+
+1. Ensure that the first list is smaller
+2. define m, n, low, and heigh
+m defines limit of the first array and the starting "high"
+3. while low <= high
+loop keeps us in both arrays and if not, we are not using sorted arrays
+    4. create partitions of both arrays. If the partition value is 2 that means that there
+    is a partition between values 1 and 2. To start we use the midpoint of m for partition1
+    Then we use m + n + 1 // - partition 1 in order to place the second partition so that
+    there are equal amounts on both sides!
+    5. With these partitions we can get maxleft and minright (the numbers to the left and right
+    of each partition). 
+    
+    6. Check that maxleft1 < minright2 and maxleft2 < minright1
+        7. If so, we have the right partition, and can return the Median
+        Make sure to check if odd or even to get it right (take max of maxlefts) or halfway point of max maxleft or min minright
+
+        8. If not, if maxleft 1 > minright 2, this means that the partition1 is too far to the right 
+        To move it to the left we can make high equal to the partition - 1. This moves partition1 halfway down its remaining left side.
+        Partition2 is automatically adjusted to the right 
+
+        9. Else, this means that the partition is too far to the right. We can move it left by increasing the partition to partition +1. 
+        This moves the partition halfway up to itrs remaining right side 
+    
+    If this process fails, we know they are not in the right order so we can raise an error.
