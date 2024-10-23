@@ -105,3 +105,22 @@ loop keeps us in both arrays and if not, we are not using sorted arrays
         This moves the partition halfway up to itrs remaining right side 
     
     If this process fails, we know they are not in the right order so we can raise an error.
+
+10/23/2024
+146. LRU cache
+Solution: We need to create 
+1. Node Class for doubly linked lists
+2. LRU Class with
+    2.1 Dummy head and tail (make sure to link them), this simplifies addition and removal 
+    2.2 Capacity
+    2.3 Dictionary for cache
+
+    2.4 Remove function (connect prev and next nodes to each other)
+    2.5 Add function (Insert after the dummy head)
+
+    2.6 Get function: If key is in dict, remove it from DLL
+        Else, return -1
+    2.7 Put Function: If key is in dict, remove it from DICT (we will add it back in)
+            Elif DICT len = capacity: Remove LRU node (dummy tail.prev) and remove from dict
+        Add updated node to DLL and DICT
+        
