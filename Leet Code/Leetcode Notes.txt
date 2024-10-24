@@ -135,3 +135,20 @@ Define DFS
 Then start going through the grid. 
 Start with 0 islands, when island is found, update counter and call DFS on island.
 Return total number of islands
+
+56. Merged intervals
+Solution
+1. Sort using key= lambda: x: x[0] to sort by first element
+2. Iterate through sorted intervals and append interval if ans empty or if the last interval
+in ans ends before the next one start (non overlapping)
+3. Else: replace the second element in the last array with the second array's second element
+
+3. Longest Substring Without Repeating Characters
+Solution
+1. Create a set or dict
+2. Create a left pointer
+3. Create a longest var
+4. Iterate through string with right pointer
+5. If char is in set/dict, remove char[left pointer] and 1+= left pointer 
+until s[right pointer] isnt in the set, then add it back into the set/dict
+6. Set longest to max(longest, l-r+1) 
