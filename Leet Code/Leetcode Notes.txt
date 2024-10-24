@@ -106,7 +106,7 @@ loop keeps us in both arrays and if not, we are not using sorted arrays
     
     If this process fails, we know they are not in the right order so we can raise an error.
 
-10/23/2024
+10/22/2024
 146. LRU cache
 Solution: We need to create 
 1. Node Class for doubly linked lists
@@ -123,4 +123,15 @@ Solution: We need to create
     2.7 Put Function: If key is in dict, remove it from DICT (we will add it back in)
             Elif DICT len = capacity: Remove LRU node (dummy tail.prev) and remove from dict
         Add updated node to DLL and DICT
-        
+
+10/23/2024
+200. Number of islands
+Solution: Use DFS to mark all islands as visited
+Define DFS
+1. Check we are in bounds and not visiting water
+2. Mark land as visited by marking it as 0
+3. Call DFS on up, down, left, right 
+
+Then start going through the grid. 
+Start with 0 islands, when island is found, update counter and call DFS on island.
+Return total number of islands
