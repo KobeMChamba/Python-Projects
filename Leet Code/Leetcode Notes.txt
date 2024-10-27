@@ -152,3 +152,14 @@ Solution
 5. If char is in set/dict, remove char[left pointer] and 1+= left pointer 
 until s[right pointer] isnt in the set, then add it back into the set/dict
 6. Set longest to max(longest, l-r+1) 
+
+10/27/2024
+K-th Largest Element 
+O(N log n ) solution: Sort and print kth 
+o(N) solution but O(M) space: Create a M-long array of min and max. Iterate through array
+and use array to count instances.
+
+49. Group Anagrams
+O(N * k * logK) Solution: Sort words and add sorted and original word to the dictionary
+O(N * K) solution: Create a freq array, go through word and populat array. Add the list as a tuple
+and the word to the dictionary
