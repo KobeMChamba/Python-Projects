@@ -163,3 +163,21 @@ and use array to count instances.
 O(N * k * logK) Solution: Sort words and add sorted and original word to the dictionary
 O(N * K) solution: Create a freq array, go through word and populat array. Add the list as a tuple
 and the word to the dictionary
+
+10/28/2024
+15. 3 Sum
+Can be solved in O(N^2) time
+Sort it O(n log n)
+init results
+Iterate through array for i:
+    Skip duplicates (if i > 0 and nums[i-1] is different from nums[i])
+    init left and right pointers to i+1 and len-1
+    while l<r:
+        calc total
+        if 0, append and increase l, decease r, 
+            skip duplicates
+        
+        if < 0, increase l
+        else, decrease r
+
+    return results
