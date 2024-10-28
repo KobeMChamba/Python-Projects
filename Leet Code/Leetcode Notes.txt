@@ -181,3 +181,32 @@ Iterate through array for i:
         else, decrease r
 
     return results
+
+875. Koko Eating Bananas
+Can be solved in O(n log m) where m is the range of left and right pointers
+It is a binary search question
+Init left and right pointers
+The best case scenario for l is that we just use the average speed to eat all the Bananas
+Because we are using integers we use (s + h - 1 )// h, where s is sum of bananas and h is hours
+We know we cannot eat at a slower speed because even if there was only 1 pile, we wouldnt finish 
+all the bananas (12 + 4 - 1) // 4 = 3 If we eat at 2 we cannot eat enough (2*4 < 12)
+
+Therefore start l = (s + h -1) // h
+
+For right we cna use r = math.ceil(s / (h - n)) 
+This is the smallest upper bound. We are giving each pile at least an hour
+(each pile has leftover, worst case scenario) and using the remaining hours (h - n) to find the speed
+We are also ceiling the result as we are using integers and cannot eat fraction bananas
+Anything slower will be wasting time. 
+
+We then use binary search on this range
+while l < r:
+    find mid as l + r // 2 
+    we can then calculate the total hours need by 
+    summing pile + mid - 1 // mid for each pile in piles
+    if the hours is > h, we need to be faster
+        l = mid + 1 (+1 because mid was too slow and cannot be an answer)
+    if not, we can try a slower speed
+        r = mid (mid was a valid answer so we keep it as a possibility)
+
+At the end of the loop, l and r will converge to one value, we can return left
