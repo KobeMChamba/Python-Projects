@@ -193,7 +193,7 @@ all the bananas (12 + 4 - 1) // 4 = 3 If we eat at 2 we cannot eat enough (2*4 <
 
 Therefore start l = (s + h -1) // h
 
-For right we cna use r = math.ceil(s / (h - n)) 
+For right we can use r = math.ceil(s / (h - n)) 
 This is the smallest upper bound. We are giving each pile at least an hour
 (each pile has leftover, worst case scenario) and using the remaining hours (h - n) to find the speed
 We are also ceiling the result as we are using integers and cannot eat fraction bananas
@@ -210,3 +210,54 @@ while l < r:
         r = mid (mid was a valid answer so we keep it as a possibility)
 
 At the end of the loop, l and r will converge to one value, we can return left
+
+10/30/24
+Solved in O(N log k) time
+We create a min heap, this keeps the smallest value at the top of the heap
+It takes O(k) time to init the heap and O(log k) for each operation for a total of 
+N log k time.
+
+Import heapq
+First we create a minheap var [].
+Init the heap with for i, node enumerate(lists)
+    heapq.heappush(name of heap, (node.val, i, node))
+
+Init a dummy node to start the list and current pointer
+Merge the lists
+While min heap
+    Pop with heapq.heappush(name of heap)
+    Add to list with current.next
+    Update current pointer
+    If node.next, add it to the heap
+Finally we can return dummy.next
+
+Another optimal solution (with better space complexity)
+
+10/31/2024
+127. Word LAtter
+Can be solved in O(m x n/2)
+M: Length of the word
+N: Number of words
+In order to solve this we take a couple of steps
+1. Turn wordlist into a set for O(1) look up
+2. Check if endword is in wordlist, if not return 0
+3.  Create sets for beginset and endset using the beginword and endword
+4. Create a loop for while beginset and endset:
+    5. Remove beginset from wordset to avoid duplicates
+    6. Increment steps 
+    7. Create a temporary set called NewSet which will hold the words we use
+    8. Create a loop for each word in beginset
+        9. Create a loop for each char in each word
+        10. Create left and right using splicing
+        11. For each char in string.ascii_lowercase:
+            12. Create new word with splices and char
+            13. If the new word is in wordeet and not in endset
+                14. Add it to NewSet
+            15. If the new word is in endset, return the number of steps
+    16. This newset is now the new frontier that we want to after we finish with beginset
+    17. To speed up the process we want to check the smaller frontier, endset or newset.
+    18. Whichever is the smallest becomes beginset and the other comes endset
+
+If still nothing, return 0 but should never get here
+
+
