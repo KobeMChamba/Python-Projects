@@ -260,4 +260,18 @@ In order to solve this we take a couple of steps
 
 If still nothing, return 0 but should never get here
 
+42. Trapping Rain Water
+Solved in O(N) time and O(1) space
+This is a two pointer question. In order to figure out if we can trap water we keep track of
+4 variables. Left pointer, right pointer, left max, and right max. We init them all to 0
+We then make a loop for while left<right. 
+We then check what is smaller, l or r
+For the smaller one we want to check if the current pointer is smaller than that sides max.
+We already know the pointer is smaller than the other so water will be trapped by the other side.
+It is bounded by its max.
+We add water += max_side - current_side 
 
+We do code this for both sides and return water
+1. While loop (L<R)
+2. If H[L]<H[R]:
+    3.  
